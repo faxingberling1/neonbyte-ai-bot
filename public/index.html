@@ -3,154 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot | Nexus AI | Advanced AI Tools & Agents</title>
+    <title>AI Chatbot | Nexus AI</title>
+    <link rel="stylesheet" href="chatbot.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Banner -->
-    <div class="banner">
-        <div class="container">
-            <div class="banner-content">
-                <div class="banner-text">
-                    <span class="banner-highlight">NEW:</span> Our AI Chatbot now supports 50+ languages and real-time translation!
-                </div>
+    <div class="chatbot-container">
+        <!-- Header -->
+        <header class="chatbot-header">
+            <div class="container">
+                <nav class="navbar">
+                    <div class="logo">
+                        <i class="fas fa-robot"></i>
+                        <span>Nexus AI</span>
+                    </div>
+                    <div class="nav-links">
+                        <a href="/">Home</a>
+                        <a href="/chatbot" class="active">AI Chatbot</a>
+                    </div>
+                </nav>
             </div>
-            <div class="banner-decoration"></div>
-        </div>
-    </div>
+        </header>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <i class="fas fa-robot"></i>
-                    <span>Nexus AI</span>
-                </div>
-                <div class="nav-links">
-                    <a href="index.html" class="active">AI Chatbot</a>
-                    <a href="#">AI Tools</a>
-                    <a href="#">AI Agents</a>
-                    <a href="#">Pricing</a>
-                    <a href="#">Watch Demo</a>
-                </div>
-                <div class="nav-buttons">
-                    <button class="btn btn-outline">Sign In</button>
-                    <button class="btn btn-primary">Get Started</button>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Chatbot Hero Section -->
-    <section class="chatbot-hero">
-        <div class="container">
-            <div class="chatbot-hero-content">
-                <h1>Intelligent AI Chatbot</h1>
-                <p>Experience human-like conversations with our advanced AI chatbot. Get instant answers, automate customer support, and engage users 24/7.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Chatbot Section -->
-    <section class="chatbot-main">
-        <div class="container">
-            <div class="chatbot-container">
-                <!-- Sidebar -->
-                <div class="chat-sidebar">
-                    <div class="sidebar-header">
-                        <div class="sidebar-avatar">
-                            <i class="fas fa-robot"></i>
+        <!-- Chat Interface -->
+        <main class="chatbot-main">
+            <div class="container">
+                <div class="chat-interface">
+                    <!-- Sidebar -->
+                    <div class="chat-sidebar">
+                        <div class="sidebar-header">
+                            <div class="sidebar-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3>Chat History</h3>
                         </div>
-                        <h3>Chat History</h3>
-                    </div>
-                    <button class="new-chat-btn" id="new-chat-btn">
-                        <i class="fas fa-plus"></i> New Chat
-                    </button>
-                    <div class="chat-history" id="chat-history">
-                        <div class="history-title">Recent Conversations</div>
-                    </div>
-                </div>
-
-                <!-- Chat Area -->
-                <div class="chat-area">
-                    <div class="chat-header">
-                        <div class="chat-avatar">AI</div>
-                        <div class="chat-info">
-                            <h3>Nexus AI Assistant</h3>
-                            <p>Online • Always available to help</p>
-                        </div>
-                        <div class="status-indicator"></div>
-                    </div>
-
-                    <div class="chat-messages" id="chat-messages">
-                        <div class="message bot">
-                            <div class="message-avatar">AI</div>
-                            <div class="message-content">
-                                Hello! I'm your Nexus AI assistant. How can I assist you today?
-                                <div class="message-time">Now</div>
+                        
+                        <button class="new-chat-btn" id="new-chat-btn">
+                            <i class="fas fa-plus"></i>
+                            New Chat
+                        </button>
+                        
+                        <div class="chat-history">
+                            <div class="history-title">Recent Conversations</div>
+                            <div class="history-item active">
+                                <i class="fas fa-comment"></i>
+                                <span>Current Session</span>
                             </div>
                         </div>
                     </div>
-
-                    <div class="chat-input-area">
-                        <div class="chat-input-container">
-                            <textarea class="chat-input" id="chat-input" placeholder="Type your message here..." rows="1"></textarea>
-                            <button class="send-btn" id="send-btn">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
+                    
+                    <!-- Chat Area -->
+                    <div class="chat-area">
+                        <div class="chat-header">
+                            <div class="chat-avatar">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="chat-info">
+                                <h3>Gemini AI Assistant</h3>
+                                <p>Powered by Google Gemini • Always learning</p>
+                            </div>
+                            <div class="status-indicator" id="header-status"></div>
                         </div>
-                        <div class="input-actions">
-                            <button class="action-btn" id="suggest-question">
-                                <i class="fas fa-lightbulb"></i> Suggest a question
-                            </button>
-                            <button class="action-btn" id="clear-chat">
-                                <i class="fas fa-trash"></i> Clear chat
-                            </button>
-                            <button class="action-btn" id="export-chat">
-                                <i class="fas fa-download"></i> Export chat
-                            </button>
+                        
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message bot">
+                                <div class="message-avatar">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <div class="message-content">
+                                    Hello! I'm your Gemini AI assistant, powered by Google's most advanced language model. I can help you with creative writing, technical questions, code assistance, research, and much more. What would you like to explore today?
+                                    <div class="message-time" id="initial-time">Just now</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input-area">
+                            <div class="chat-input-container">
+                                <textarea class="chat-input" id="chat-input" placeholder="Ask me anything..." rows="1"></textarea>
+                                <button class="send-btn" id="send-btn">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <div class="input-actions">
+                                <button class="action-btn" id="suggest-question">
+                                    <i class="fas fa-lightbulb"></i>
+                                    Suggest a question
+                                </button>
+                                <button class="action-btn" id="clear-chat">
+                                    <i class="fas fa-trash"></i>
+                                    Clear chat
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </main>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="logo"><i class="fas fa-robot"></i><span>Nexus AI</span></div>
-                    <p style="margin-top: 20px; color: rgba(255,255,255,0.7);">Empowering businesses with cutting-edge AI solutions.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>AI Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">AI Agents</a></li>
-                        <li><a href="#">AI Chatbots</a></li>
-                        <li><a href="#">Automation Tools</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 Nexus AI. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
 </body>
 </html>
