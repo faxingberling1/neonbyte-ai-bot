@@ -7,12 +7,12 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(express.static("public")); // ✅ serve frontend from 'public' folder
+app.use(express.static("public")); // Serve frontend from 'public' folder
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const PORT = process.env.PORT || 5000;
 
-// ✅ Use latest Gemini API model and correct endpoint
+// Gemini API endpoint
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 app.post("/chat", async (req, res) => {
@@ -26,6 +26,7 @@ app.post("/chat", async (req, res) => {
     const reply =
       response.data?.candidates?.[0]?.content?.parts?.[0]?.text ||
       "⚠️ No reply from Gemini";
+
     res.json({ reply });
   } catch (error) {
     console.error("❌ API Error:", error.response?.data || error.message);
